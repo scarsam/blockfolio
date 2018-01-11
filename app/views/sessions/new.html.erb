@@ -1,5 +1,10 @@
 <h1>Login form</h1>
 <%= form_tag login_path do %>
+  <% if flash[:error] %>
+    <ul>
+      <li><%= flash[:error] %></li>
+    </ul>
+  <% end %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
 
@@ -8,3 +13,6 @@
 
   <%= submit_tag 'Login' %>
 <% end %>
+<p>
+  <%= link_to "Sign up", root_path %>
+</p>

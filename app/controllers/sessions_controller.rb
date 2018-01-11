@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to portfolios_path
     else
+      flash[:error] = "Invalid email or password."
       render :new
     end
   end
 
   def destroy
-    # params / session. Look up
     session.destroy
     redirect_to root_path
   end

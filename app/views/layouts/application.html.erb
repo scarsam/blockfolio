@@ -9,7 +9,6 @@
   </head>
 
   <nav>
-    <%= link_to "Login", login_path unless logged_in? %>
     <%= link_to "Logout", logout_path, method: :delete if logged_in? %>
   </nav>
   <body>
