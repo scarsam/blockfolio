@@ -1,0 +1,2 @@
+class CoinPortfolio < ApplicationRecord
+end
