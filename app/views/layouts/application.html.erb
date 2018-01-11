@@ -8,6 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav>
+    <%= link_to "Login", login_path %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+  </nav>
   <body>
     <%= yield %>
   </body>
