@@ -11,6 +11,12 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = Portfolio.new(portfolio_params)
+    if @portfolio.valid?
+      @portfolio.save
+      redirect_to portfolio_path(@portfolio)
+    else
+      render :new
+    end
   end
 
   private
