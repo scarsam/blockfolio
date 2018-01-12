@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to portfolios_path
     else
-      flash[:error] = "Invalid email or password."
+      flash[:error] = "Couldn't find email or password"
       render :new
     end
   end

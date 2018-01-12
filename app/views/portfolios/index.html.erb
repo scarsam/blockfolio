@@ -1,1 +1,9 @@
 <h1>Welcome to BlockFolio</h1>
+
+<ul>
+  <% @portfolios.each do |portfolio| %>
+    <li><%= portfolio.name %></li>
+    <li><%= portfolio.user.email %></li>
+  <% end %>
+</ul>
+<%= link_to 'Create new portfolio', new_portfolio_path %>
