@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  resources :coin_portfolios, only: [:create]
   resources :portfolios
 end

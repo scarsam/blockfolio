@@ -6,11 +6,11 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
-    10.times { @portfolio.coins.build }
+    @portfolio.coins.build
   end
 
   def create
-    @portfolio = Portfolio.new(portfolio_params)
+    @portfolio = current_user.portfolios.build(portfolio_params)
     if @portfolio.valid?
       @portfolio.save
       redirect_to portfolio_path(@portfolio)
@@ -18,6 +18,12 @@ class PortfoliosController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @portfolio = Portfolio.find(params[:id])
+  end
+
+
 
   private
   def portfolio_params

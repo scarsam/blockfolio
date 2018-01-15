@@ -1,0 +1,10 @@
+<h1><%= @portfolio.name %></h1>
+<h2><%= @portfolio.user.email %></h2>
+<ul>
+  <% @portfolio.coins.each do |coin| %>
+    <li><%= coin.name %></li>
+    <li><%= coin.coin_quantity %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'See all portfolios', portfolios_path %>
