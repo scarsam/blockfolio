@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   #sign up
   resources :users, only: [:create]
 
+  #facebook
+  get '/auth/facebook/callback' => 'sessions#create_facebook'
+
   #login/logout
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
