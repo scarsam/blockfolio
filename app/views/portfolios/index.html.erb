@@ -2,8 +2,9 @@
 
 <ul>
   <% @portfolios.each do |portfolio| %>
-    <li><%= portfolio.name %></li>
-    <li><%= portfolio.user.email %></li>
+    <li>Portfolio name: <%= portfolio.name %></li>
+    <li>Portfolio owner:<%= portfolio.user.email %></li>
+    <hr>
   <% end %>
 </ul>
 <%= link_to 'Create new portfolio', new_portfolio_path %>

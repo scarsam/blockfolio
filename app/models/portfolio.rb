@@ -7,8 +7,7 @@ class Portfolio < ApplicationRecord
   def coins_attributes=(coin_attributes)
     coin_attributes.each do |key, attribute|
       unless attribute.empty?
-        coins << Coin.find_or_create_by(name: attribute[:name])
-        coin_portfolios.last.quantity = attribute[:quantity]
+        coins << Coin.find_by(name: attribute[:name])
       end
     end
   end
