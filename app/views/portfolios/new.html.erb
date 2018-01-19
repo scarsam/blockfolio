@@ -3,10 +3,11 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <strong>Coins:</strong>
-  <%= f.fields_for :coins do |coin_fields| %>
-    <%= coin_fields.label :name %>
-    <%= coin_fields.text_field :name %>
+  <strong>Coin:</strong>
+  <%= f.fields_for :coin_portfolios do |coin_portfolios_fields| %>
+    <%= coin_portfolios_fields.label :quantity %>
+    <%= coin_portfolios_fields.number_field :quantity %>
+    <%= coin_portfolios_fields.collection_select(:id, Coin.all, :name, :name) %>
   <% end %>
   <%= f.submit 'Create Portfolio' %>
 <% end %>

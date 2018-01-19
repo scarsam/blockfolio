@@ -3,7 +3,8 @@
 <ul>
   <% @portfolios.each do |portfolio| %>
     <li>Portfolio name: <%= portfolio.name %></li>
-    <li>Portfolio owner:<%= portfolio.user.email %></li>
+    <li>Portfolio owner: <%= portfolio.user.email %></li>
+    <li><%= link_to 'See Portfolio', portfolio_path(portfolio) %></li>
     <hr>
   <% end %>
 </ul>
