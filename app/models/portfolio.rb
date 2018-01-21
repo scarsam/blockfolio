@@ -8,7 +8,8 @@ class Portfolio < ApplicationRecord
     binding.pry
     coin_attributes.each do |key, attribute|
       unless attribute.empty?
-        coins << Coin.find_by(name: attribute[:name])
+        coins << Coin.find(attribute[:id])
+        CoinPortfolio.last.quantity = attribute[:quantity]
       end
     end
   end

@@ -27,7 +27,7 @@ class PortfoliosController < ApplicationController
 
   private
   def portfolio_params
-    params.require(:portfolio).permit(:name, coin_portfolis_attributes: [:name, :quantity])
+    params.require(:portfolio).permit(:name, coin_portfolios_attributes: [:id, :quantity])
   end
 
 end
