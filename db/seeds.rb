@@ -19,6 +19,24 @@ user1 = User.create(email: 'sam@ojling.com', password: 'test123')
 
 user1.portfolios.create(name: 'BTC Portfolio')
 user1.portfolios[0].coins << Coin.find_by(name: 'BTC')
+user1.portfolios[0].coins << Coin.find_by(name: 'ETH')
+user_1_portfolio_1 = user1.portfolios[0]
+user_1_coin_1 = user_1_portfolio_1.coins[0]
+user_1_coin_2 = user_1_portfolio_1.coins[1]
+
+user_1_coin_portfolio_1 = CoinPortfolio.find_by(
+  portfolio_id: user_1_portfolio_1,
+  coin_id: user_1_coin_1
+)
+user_1_coin_portfolio_1.quantity = 14
+user_1_coin_portfolio_1.save
+
+user_1_coin_portfolio_2 = CoinPortfolio.find_by(
+  portfolio_id: user_1_portfolio_1,
+  coin_id: user_1_coin_2
+)
+user_1_coin_portfolio_2.quantity = 44
+user_1_coin_portfolio_2.save
 
 # User 2
 user2 = User.create(email: 'nils@westgardh.com', password: 'test456')
