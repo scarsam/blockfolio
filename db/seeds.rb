@@ -7,62 +7,108 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Coins
-Coin.create(name: 'BTC')
-Coin.create(name: 'XLM')
-Coin.create(name: 'XRP')
-Coin.create(name: 'FUN')
-Coin.create(name: 'ETH')
-Coin.create(name: 'LTC')
+btc_coin = Coin.create(name: 'BTC')
+xlm_coin = Coin.create(name: 'XLM')
+xrp_coin = Coin.create(name: 'XRP')
+fun_coin = Coin.create(name: 'FUN')
+eth_coin = Coin.create(name: 'ETH')
+ltc_coin = Coin.create(name: 'LTC')
 
 # User 1
 user1 = User.create(email: 'sam@ojling.com', password: 'test123')
 
-user1.portfolios.create(name: 'BTC Portfolio')
-user1.portfolios[0].coins << Coin.find_by(name: 'BTC')
-user1.portfolios[0].coins << Coin.find_by(name: 'ETH')
-user_1_portfolio_1 = user1.portfolios[0]
-user_1_coin_1 = user_1_portfolio_1.coins[0]
-user_1_coin_2 = user_1_portfolio_1.coins[1]
-
-user_1_coin_portfolio_1 = CoinPortfolio.find_by(
-  portfolio_id: user_1_portfolio_1,
-  coin_id: user_1_coin_1
+user_1_portfolio_1 = user1.portfolios.create(name: 'BTC Portfolio')
+CoinPortfolio.create(
+  portfolio_id: user_1_portfolio_1.id,
+  coin_id: btc_coin.id,
+  quantity: 43
 )
-user_1_coin_portfolio_1.quantity = 14
-user_1_coin_portfolio_1.save
-
-user_1_coin_portfolio_2 = CoinPortfolio.find_by(
-  portfolio_id: user_1_portfolio_1,
-  coin_id: user_1_coin_2
-)
-user_1_coin_portfolio_2.quantity = 44
-user_1_coin_portfolio_2.save
 
 # User 2
 user2 = User.create(email: 'nils@westgardh.com', password: 'test456')
 
-user2.portfolios.create(name: 'XLM Portfolio')
-user2.portfolios[0].coins << Coin.find_by(name: 'BTC')
-user2.portfolios[0].coins << Coin.find_by(name: 'XLM')
+user_2_portfolio_1 = user2.portfolios.create(name: 'XLM Portfolio')
+CoinPortfolio.create(
+  portfolio_id: user_2_portfolio_1.id,
+  coin_id: xrp_coin.id,
+  quantity: 1231
+)
 
-user2.portfolios.create(name: 'XRP Portfolio')
-user2.portfolios[1].coins << Coin.find_by(name: 'FUN')
-user2.portfolios[1].coins << Coin.find_by(name: 'ETH')
+CoinPortfolio.create(
+  portfolio_id: user_2_portfolio_1.id,
+  coin_id: xlm_coin.id,
+  quantity: 5423
+)
+
+user_2_portfolio_2 = user2.portfolios.create(name: 'XRP Portfolio')
+CoinPortfolio.create(
+  portfolio_id: user_2_portfolio_2.id,
+  coin_id: xrp_coin.id,
+  quantity: 13231
+)
+
+CoinPortfolio.create(
+  portfolio_id: user_2_portfolio_2.id,
+  coin_id: fun_coin.id,
+  quantity: 52423
+)
 
 # User 3
 user3 = User.create(email: 'sam@harper.com', password: 'test789')
 
-user3.portfolios.create(name: 'ETH Portfolio')
-user3.portfolios[0].coins << Coin.find_by(name: 'XRP')
-user3.portfolios[0].coins << Coin.find_by(name: 'BTC')
-user3.portfolios[0].coins << Coin.find_by(name: 'LTC')
+user_3_portfolio_1 = user3.portfolios.create(name: 'ETH Portfolio')
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_1.id,
+  coin_id: eth_coin.id,
+  quantity: 15
+)
 
-user3.portfolios.create(name: 'LTC Portfolio')
-user3.portfolios[1].coins << Coin.find_by(name: 'ETH')
-user3.portfolios[1].coins << Coin.find_by(name: 'BTC')
-user3.portfolios[1].coins << Coin.find_by(name: 'FUN')
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_1.id,
+  coin_id: ltc_coin.id,
+  quantity: 27
+)
 
-user3.portfolios.create(name: 'FUN Portfolio')
-user3.portfolios[2].coins << Coin.find_by(name: 'FUN')
-user3.portfolios[2].coins << Coin.find_by(name: 'BTC')
-user3.portfolios[2].coins << Coin.find_by(name: 'ETH')
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_1.id,
+  coin_id: fun_coin.id,
+  quantity: 2752
+)
+
+user_3_portfolio_2 = user3.portfolios.create(name: 'LTC Portfolio')
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_2.id,
+  coin_id: btc_coin.id,
+  quantity: 5
+)
+
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_2.id,
+  coin_id: ltc_coin.id,
+  quantity: 35
+)
+
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_2.id,
+  coin_id: xrp_coin.id,
+  quantity: 27252
+)
+
+user_3_portfolio_3 = user3.portfolios.create(name: 'FUN Portfolio')
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_3.id,
+  coin_id: fun_coin.id,
+  quantity: 12300
+)
+
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_3.id,
+  coin_id: eth_coin.id,
+  quantity: 10
+)
+
+CoinPortfolio.create(
+  portfolio_id: user_3_portfolio_3.id,
+  coin_id: xlm_coin.id,
+  quantity: 15252
+)
