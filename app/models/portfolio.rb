@@ -4,12 +4,9 @@ class Portfolio < ApplicationRecord
   has_many :coins, through: :coin_portfolios
 
   # Instantiate coins from API
-  def coin_portfolios_attributes=(coin_attributes)
-    coin_attributes.each do |key, attribute|
-      unless attribute.empty?
-        coins << Coin.find(attribute[:id])
-        coin_portfolios.last.quantity = attribute[:quantity]
-      end
+  def coin_ids=(coin_attributes)
+    coin_attributes.each do |coin_id|
+      coins << Coin.find(coin_id) if coin_id.present?
     end
   end
 

@@ -6,7 +6,7 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
-    @portfolio.coin_portfolios.build
+    @portfolio.coins.build
   end
 
   def create
@@ -27,7 +27,7 @@ class PortfoliosController < ApplicationController
 
   private
   def portfolio_params
-    params.require(:portfolio).permit(:name, coin_portfolios_attributes: [:id, :quantity])
+    params.require(:portfolio).permit(:name, :coin_ids => [])
   end
 
 end
