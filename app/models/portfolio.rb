@@ -10,4 +10,10 @@ class Portfolio < ApplicationRecord
     end
   end
 
+  def coin_portfolios_attributes=(coin_portfolios_attributes)
+    coin_portfolios_attributes.each do |index, attribute|
+      CoinPortfolio.update(portfolio_id: self.id, coin_id: attribute[:id], quantity: attribute[:quantity])
+    end
+  end
+
 end

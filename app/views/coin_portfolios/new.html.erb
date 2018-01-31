@@ -1,0 +1,7 @@
+<%= form_for @portfolio do |f| %>
+  <%= f.fields_for :coin_portfolios do |coin_portfolio| %>
+    <%= coin_portfolio.number_field :quantity %>
+  <% end %>
+
+  <%= f.submit 'Create Portfolio' %>
+<% end %>

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-  resources :coin_portfolios, only: [:create]
-  resources :portfolios
+  resources :portfolios do
+    get '/quantity/new' => 'coin_portfolios#new'
+    post '/quantity' => 'coin_portfolios#create'
+  end
+
 end

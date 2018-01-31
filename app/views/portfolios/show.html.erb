@@ -3,8 +3,6 @@
 <ul>
   <% @portfolio.coins.each do |coin| %>
     <li><%= coin.name %></li>
-    <li><%= coin.quantity(@portfolio.id) %></li>
   <% end %>
 </ul>
-
-<%= link_to 'See all portfolios', portfolios_path %>
+<p><%= link_to 'See all portfolios', portfolios_path %></p>
