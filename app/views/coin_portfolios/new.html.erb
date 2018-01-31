@@ -1,6 +1,8 @@
 <%= form_for @portfolio do |f| %>
   <%= f.fields_for :coin_portfolios do |coin_portfolio| %>
+    <strong><%= coin_portfolio.object.coin_name %></strong>
     <%= coin_portfolio.hidden_field :coin_id %>
+    <%= coin_portfolio.label :quantity %>
     <%= coin_portfolio.number_field :quantity %>
   <% end %>
 
