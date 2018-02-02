@@ -120,3 +120,17 @@ Portfolio form
     - percentage changed 24h
   - quantity
 - submit
+
+Ideas:
+- Portfolio form
+  - creates Portfolio and associates selected coins
+  - redirects after create to the join_table attribute form
+  - edit/update form for portfolio with fields for join_table?
+  or
+  - creates Portfolio and associates selected coins
+  - input quantity somehow?
+  - user after_save macro to update join_table attribute
+  - redirect to portfolio show page
+  Issues with current solution
+  - breaks the edit/update form if I decide to use "second" form through update action
+  - can I change controller/action and let the update action be untouched?

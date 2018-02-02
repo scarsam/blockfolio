@@ -33,8 +33,6 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.find(params[:id])
   end
 
-
-
   private
   def portfolio_params
     params.require(:portfolio).permit(:name, :coin_ids => [], :coin_portfolios_attributes => [:coin_id, :quantity])
