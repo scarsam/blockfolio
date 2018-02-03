@@ -134,3 +134,10 @@ Ideas:
   Issues with current solution
   - breaks the edit/update form if I decide to use "second" form through update action
   - can I change controller/action and let the update action be untouched?
+  
+  
+  Render x fields for portfolio (create)
+  x amount of fields - skip double form
+  Dataset tag
+  Show page - add new coin / change quantity
+  portfolio/1/coins/new

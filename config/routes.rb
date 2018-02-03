@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :portfolios do
-    get '/quantity/new' => 'coin_portfolios#new'
-    post '/quantity' => 'coin_portfolios#create'
+    resources :coins
+    # Coins should be nested under portfolios
   end
 
 end
