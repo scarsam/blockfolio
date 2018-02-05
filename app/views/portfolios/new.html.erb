@@ -2,10 +2,5 @@
   <strong>Portfolio:</strong>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <strong>Coin:</strong>
-  <%= f.fields_for :coins do |coin| %>
-    <%= coin.label :name %>
-    <%= coin.collection_select :id, Coin.all, :id, :name %>
-  <% end %>
   <%= f.submit 'Continue' %>
 <% end %>
