@@ -1,0 +1,6 @@
+<%= form_for [@portfolio, @coin] do |f| %>
+  <strong>Coin:</strong>
+  <%= f.label :name %>
+  <%= f.collection_select :id, Coin.all, :id, :name %>
+  <%= f.submit 'Continue' %>
+<% end %>

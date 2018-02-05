@@ -6,8 +6,6 @@
   <%= f.fields_for :coins do |coin| %>
     <%= coin.label :name %>
     <%= coin.collection_select :id, Coin.all, :id, :name %>
-    <%= coin.label :quantity %>
-    <%= coin.number_field :quantity %>
   <% end %>
   <%= f.submit 'Continue' %>
 <% end %>

@@ -1,0 +1,6 @@
+<%= form_for [@portfolio, @coin_portfolio] do |f| %>
+  <strong><%= @coin_portfolio.coin_name %></strong>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+  <%= f.submit 'Save' %>
+<% end %>

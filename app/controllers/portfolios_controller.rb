@@ -13,7 +13,7 @@ class PortfoliosController < ApplicationController
     @portfolio = current_user.portfolios.build(portfolio_params)
     if @portfolio.valid?
       @portfolio.save
-      redirect_to portfolio_path(@portfolio)
+      redirect_to edit_portfolio_coin_portfolio_path(@portfolio, @portfolio.coin_portfolios.last)
     else
       render :new
     end
@@ -25,7 +25,7 @@ class PortfoliosController < ApplicationController
 
   private
   def portfolio_params
-    params.require(:portfolio).permit(:name, :coins_attributes => [:id, :name, :quantity])
+    params.require(:portfolio).permit(:name, :coins_attributes => [:id])
   end
 
 end

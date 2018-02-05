@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :portfolios do
+    resources :coin_portfolios
     resources :coins
-    # Coins should be nested under portfolios
   end
 
 end

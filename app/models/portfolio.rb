@@ -3,12 +3,14 @@ class Portfolio < ApplicationRecord
   has_many :coin_portfolios
   has_many :coins, through: :coin_portfolios
 
-  def coins_attributes=(coin_portfolios_attributes)
-    coin_portfolios_attributes.each do |index, attribute|
-      coin_portfolio = CoinPortfolio.find_by(portfolio_id: self.id, coin_id: attribute[:coin_id])
-      coin_portfolio.quantity = attribute[:quantity]
-      coin_portfolio.save
+  def coins_attributes=(coin_attributes)
+    coin_attributes.each do |index, attribute|
+      coins << Coin.find(attribute[:id])
     end
+  end
+
+  def add_coin(coin)
+    coins << coin unless coins.include?(coin)
   end
 
 end

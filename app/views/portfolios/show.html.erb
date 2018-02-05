@@ -6,4 +6,5 @@
     <li><%= coin.quantity(@portfolio.id) %></li>
   <% end %>
 </ul>
+<p><%= link_to 'Add/Edit coin', new_portfolio_coin_path(@portfolio) %></p>
 <p><%= link_to 'See all portfolios', portfolios_path %></p>
