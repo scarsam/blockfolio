@@ -1,10 +1,20 @@
 <h1><%= @portfolio.name %></h1>
 <h2><%= @portfolio.user.email %></h2>
+
+<%= form_for [@portfolio, @coin_portfolio] do |f| %>
+  <%= f.fields_for :coin do |coin_fields| %>
+    <%= coin_fields.label :name %>:
+    <%= coin_fields.collection_select :id, Coin.list(@portfolio), :id, :name %>
+  <% end %>
+  <%= f.label :quantity %>:
+  <%= f.number_field :quantity %>
+  <%= f.submit 'Continue' %>
+<% end %>
+
 <ul>
   <% @portfolio.coins.each do |coin| %>
     <li><%= coin.name %></li>
-    <li><%= coin.quantity(@portfolio.id) %></li>
+    <li><%= coin.quantity(@portfolio) %></li>
   <% end %>
 </ul>
-<p><%= link_to 'Add/Edit coin', new_portfolio_coin_path(@portfolio) %></p>
 <p><%= link_to 'See all portfolios', portfolios_path %></p>

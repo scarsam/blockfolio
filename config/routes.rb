@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   resources :portfolios do
     resources :coin_portfolios
-    resources :coins
   end
 
 end

@@ -12,7 +12,7 @@ class PortfoliosController < ApplicationController
     @portfolio = current_user.portfolios.build(portfolio_params)
     if @portfolio.valid?
       @portfolio.save
-      redirect_to new_portfolio_coin_path(@portfolio)
+      redirect_to portfolio_path(@portfolio)
     else
       render :new
     end
@@ -20,6 +20,8 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio = Portfolio.find(params[:id])
+    @coin_portfolio = CoinPortfolio.new
+    @coin_portfolio.build_coin
   end
 
   private
