@@ -1,6 +1,9 @@
 <%= form_for [@portfolio, @coin_portfolio] do |f| %>
-  <strong><%= @coin_portfolio.coin_name %></strong>
-  <%= f.label :quantity %>
+  <%= f.fields_for :coin do |coin_fields| %>
+    <%= coin_fields.label :name %>:
+    <%= coin_fields.collection_select :id, Coin.all, :id, :name %>
+  <% end %>
+  <%= f.label :quantity %>:
   <%= f.number_field :quantity %>
-  <%= f.submit 'Save' %>
+  <%= f.submit 'Continue' %>
 <% end %>
