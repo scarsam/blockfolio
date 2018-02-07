@@ -11,8 +11,4 @@ class Coin < ApplicationRecord
     Coin.all.reject { |coin| portfolio.coins.include?(coin) }
   end
 
-  def join_table_id(portfolio)
-    CoinPortfolio.find_by(coin_id: self.id, portfolio_id: portfolio.id)
-  end
-
 end
