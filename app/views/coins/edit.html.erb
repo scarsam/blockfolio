@@ -1,9 +1,10 @@
-<%= form_for [@portfolio, @coin_portfolio] do |f| %>
-  <%= f.fields_for :coin do |coin_fields| %>
-    <%= coin_fields.label :name %>:
-    <%= coin_fields.collection_select :id, Coin.all, :id, :name %>
+<%= form_for [@portfolio, @coin] do |f| %>
+  <strong>Coin:</strong>
+  <%= f.label :name %>
+  <%= f.collection_select :id, Coin.edit_list(@portfolio, @coin), :id, :name %>
+  <%= f.fields_for :coin_portfolios, @coin_portfolio do |coin_portfolio| %>
+    <%= coin_portfolio.label :quantity %>
+    <%= coin_portfolio.number_field :quantity %>
   <% end %>
-  <%= f.label :quantity %>:
-  <%= f.number_field :quantity %>
   <%= f.submit 'Continue' %>
 <% end %>

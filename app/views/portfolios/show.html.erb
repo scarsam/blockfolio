@@ -3,9 +3,8 @@
 
 <%= form_for [@portfolio, @coin] do |f| %>
   <%= f.label :name %>:
-  <%= f.collection_select :id, Coin.list(@portfolio), :id, :name %>
+  <%= f.collection_select :id, Coin.new_list(@portfolio), :id, :name %>
   <%= f.fields_for :coin_portfolios do |coin_portfolio_fields| %>
-    <%= coin_portfolio_fields.hidden_field :portfolio_id, :value => params[:id] %>
     <%= coin_portfolio_fields.label :quantity %>:
     <%= coin_portfolio_fields.number_field :quantity %>
   <% end %>
@@ -16,7 +15,7 @@
   <% @portfolio.coins.each do |coin| %>
     <li><%= coin.name %></li>
     <li><%= coin.quantity(@portfolio) %></li>
-    <li><%= link_to 'edit', edit_coin_path(coin) %></li>
+    <li><%= link_to 'edit', edit_portfolio_coin_path(@portfolio, coin) %></li>
   <% end %>
 </ul>
 <p><%= link_to 'See all portfolios', portfolios_path %></p>

@@ -7,8 +7,12 @@ class Coin < ApplicationRecord
     coin_portfolio.quantity
   end
 
-  def self.list(portfolio)
+  def self.new_list(portfolio)
     Coin.all.reject { |coin| portfolio.coins.include?(coin) }
+  end
+
+  def self.edit_list(portfolio, edit_coin)
+    Coin.all.reject { |coin| portfolio.coins.include?(coin) unless coin == edit_coin }
   end
 
 end
