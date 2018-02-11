@@ -3,7 +3,6 @@ class Coin < ApplicationRecord
   has_many :portfolios, through: :coin_portfolios
   # Validators
   validates_presence_of :name
-  validates_presence_of :quantity
 
   def quantity(portfolio_id)
     coin_portfolio = CoinPortfolio.find_by(coin_id: self.id, portfolio_id: portfolio_id)

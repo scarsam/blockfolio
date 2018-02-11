@@ -31,6 +31,10 @@ class CoinsController < ApplicationController
     @portfolio = Portfolio.find(params[:portfolio_id])
   end
 
+  # Using custom attribute writer on coin_portfolios model and not on coin model
+  # accepts_nested_attributes_for not getting used using custom
+  # reject_if: proc { |attributes| attributes['name'].blank? }
+  # Reason why is because I don't know how to update join table attribute and how to find an existing coin instead of creating a new one
   def coin_portfolios_params
     params.require(:coin).permit(:coin_portfolios => [:quantity])
   end

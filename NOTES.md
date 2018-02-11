@@ -141,3 +141,6 @@ Ideas:
   Dataset tag
   Show page - add new coin / change quantity
   portfolio/1/coins/new
+  
+  find_or_create action
+  coin_portfolios_controller instead
