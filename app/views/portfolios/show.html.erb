@@ -1,21 +1,26 @@
 <h1><%= @portfolio.name %></h1>
 <h2><%= @portfolio.user.email %></h2>
 
-<%= form_for [@portfolio, @coin] do |f| %>
-  <%= f.label :name %>:
-  <%= f.collection_select :id, Coin.new_list(@portfolio), :id, :name %>
-  <%= f.fields_for :coin_portfolios do |coin_portfolio_fields| %>
-    <%= coin_portfolio_fields.label :quantity %>:
-    <%= coin_portfolio_fields.number_field :quantity %>
+<%= form_for [@portfolio, @coin_portfolio] do |f| %>
+  <%= f.fields_for :coin do |coin_fields| %>
+    <%= coin_fields.label :name %>
+    <%= coin_fields.text_field :name, list: 'coin-name' %>
+    <datalist id="coin-name">
+      <% Coin.new_list(@portfolio).each do |coin| %>
+        <option value="<%= coin.name %>"></option>
+      <% end %>
+    </datalist>
   <% end %>
-  <%= f.submit 'Continue' %>
+  <%= f.label :quantity %>:
+  <%= f.number_field :quantity %>
+  <%= f.submit 'Add coin' %>
 <% end %>
 
 <ul>
   <% @portfolio.coins.each do |coin| %>
     <li><%= coin.name %></li>
     <li><%= coin.quantity(@portfolio) %></li>
-    <li><%= link_to 'edit', edit_portfolio_coin_path(@portfolio, coin) %></li>
+    <li><%= link_to 'Details', portfolio_coin_path(@portfolio, coin) %></li>
   <% end %>
 </ul>
 <p><%= link_to 'See all portfolios', portfolios_path %></p>

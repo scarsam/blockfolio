@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :portfolios do
     resources :coins
+    resources :coin_portfolios, shallow: true
   end
 
 end
