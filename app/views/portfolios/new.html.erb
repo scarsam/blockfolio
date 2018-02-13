@@ -2,5 +2,6 @@
   <strong>Portfolio:</strong>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <p class='error'><%= show_errors(@portfolio, :name) %></p>
   <%= f.submit 'Continue' %>
 <% end %>

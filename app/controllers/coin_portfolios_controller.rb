@@ -3,16 +3,19 @@ class CoinPortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:create]
 
   def create
-    # Display errors here
-    @portfolio.coin_portfolios.build(coin_portfolios_params)
-    @portfolio.save
-    redirect_to portfolio_path(@portfolio)
+    @coin_portfolio = @portfolio.coin_portfolios.build(coin_portfolios_params)
+    if @portfolio.valid?
+      @portfolio.save
+      redirect_to portfolio_path(@portfolio)
+    else
+      @coin_portfolio.build_coin
+      render :'portfolios/show'
+    end
+
   end
 
   def update
-    @coin_portfolio.assign_attributes(coin_portfolios_params)
-    if @coin_portfolio.changed?
-      @coin_portfolio.save
+    if @coin_portfolio.update(coin_portfolios_params)
       portfolio = @coin_portfolio.portfolio
       coin = @coin_portfolio.coin
       redirect_to portfolio_coin_path(portfolio, coin)

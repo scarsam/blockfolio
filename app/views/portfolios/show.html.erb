@@ -5,14 +5,16 @@
   <%= f.fields_for :coin do |coin_fields| %>
     <%= coin_fields.label :name %>
     <%= coin_fields.text_field :name, list: 'coin-name' %>
+    <p class='error'><%= show_errors(@coin_portfolio, :coin) %></p>
     <datalist id="coin-name">
       <% Coin.new_list(@portfolio).each do |coin| %>
         <option value="<%= coin.name %>"></option>
       <% end %>
     </datalist>
   <% end %>
-  <%= f.label :quantity %>:
+  <%= f.label :quantity %>
   <%= f.number_field :quantity %>
+  <p class='error'><%= show_errors(@coin_portfolio, :quantity) %></p>
   <%= f.submit 'Add coin' %>
 <% end %>
 

@@ -1,8 +1,9 @@
 class Portfolio < ApplicationRecord
   belongs_to :user
-  has_many :coin_portfolios
+  has_many :coin_portfolios, inverse_of: :portfolio
   has_many :coins, through: :coin_portfolios
   # Custom validator
+  validates :name, presence: true
   validate :ensure_unique_name, on: :create
 
   private
