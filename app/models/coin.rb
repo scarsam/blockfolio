@@ -15,4 +15,7 @@ class Coin < ApplicationRecord
     Coin.all.reject { |coin| portfolio.coins.include?(coin) unless coin == edit_coin }
   end
 
+  private
+
+
 end

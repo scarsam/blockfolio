@@ -8,6 +8,9 @@ end
 # ENV variables
 gem 'dotenv-rails'
 
+# API
+gem 'httparty'
+
 # Omniauth
 gem 'omniauth'
 gem 'omniauth-facebook'

@@ -2,6 +2,12 @@ class PortfoliosController < ApplicationController
 
   def index
     @portfolios = Portfolio.all
+    @portfolios.all.each do |portfolio|
+      coins = []
+      coins << portfolio.coins
+      coins.uniq
+      ExternalCryptoApi.update(coins)
+    end
   end
 
   def new
