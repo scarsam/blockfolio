@@ -17,8 +17,7 @@ class CoinPortfoliosController < ApplicationController
   def update
     if @coin_portfolio.update(coin_portfolios_params)
       portfolio = @coin_portfolio.portfolio
-      coin = @coin_portfolio.coin
-      redirect_to portfolio_coin_path(portfolio, coin)
+      redirect_to portfolio_path(portfolio)
     else
       render :edit
     end

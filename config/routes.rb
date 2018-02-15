@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :portfolios do
-    resources :coins
     resources :coin_portfolios, shallow: true
   end
 

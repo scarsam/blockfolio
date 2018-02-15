@@ -22,7 +22,10 @@
   <% @portfolio.coins.each do |coin| %>
     <li><%= coin.name %></li>
     <li><%= coin.quantity(@portfolio) %></li>
-    <li><%= link_to 'Details', portfolio_coin_path(@portfolio, coin) %></li>
+    <li><%= coin.price_usd %></li>
+    <li><%= coin.market_cap_usd %></li>
+    <li><%= coin.percentage_change_24h %></li>
+    <li><%= link_to 'Edit coin', edit_coin_portfolio_path(coin.find_coin_portfolio(@portfolio)) %></li>
   <% end %>
 </ul>
 <p><%= link_to 'See all portfolios', portfolios_path %></p>
