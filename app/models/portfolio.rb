@@ -1,7 +1,7 @@
 class Portfolio < ApplicationRecord
   belongs_to :user
-  has_many :coin_portfolios, inverse_of: :portfolio
-  has_many :coins, through: :coin_portfolios
+  has_many :coin_portfolios
+  has_many :coins, through: :coin_portfolios, dependent: :destroy
   # Custom validator
   validates :name, presence: true
   validate :ensure_unique_name, on: :create
@@ -9,7 +9,7 @@ class Portfolio < ApplicationRecord
   def total_value
     total_value = 0
     self.coin_portfolios.each do |coin_portfolio|
-      total_value += coin_portfolio.total_value
+      total_value += coin_portfolio.total_value unless coin_portfolio.total_value.nil?
     end
     total_value
   end

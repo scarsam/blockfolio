@@ -149,6 +149,4 @@ Ideas:
     User most valued portfolios
   Permissions
     Only edit your own portfolio
-  Add total value of portfolio
-  Display total value of portfolio on index page
   Profiles portfolios index

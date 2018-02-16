@@ -26,6 +26,12 @@ class PortfoliosController < ApplicationController
     @coin_portfolio.build_coin
   end
 
+  def destroy
+    portfolio = Portfolio.find(params[:id])
+    portfolio.destroy
+    redirect_to portfolios_path
+  end
+
   private
   def portfolio_params
     params.require(:portfolio).permit(:name)
