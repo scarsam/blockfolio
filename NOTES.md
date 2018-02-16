@@ -144,3 +144,6 @@ Ideas:
   
   find_or_create action
   coin_portfolios_controller instead
+  
+  Class method
+  Permissions

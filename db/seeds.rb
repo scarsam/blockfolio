@@ -9,8 +9,9 @@ response = ExternalCryptoApi.call
 response.each do |coin|
   Coin.create(
     name: coin["name"],
+    symbol: coin["symbol"],
     price_usd: coin["price_usd"],
     market_cap_usd: coin["market_cap_usd"],
-    percentage_change_24h: coin["percentage_change_24"]
+    percent_change_24h: coin["percent_change_24h"]
   )
 end

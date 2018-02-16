@@ -20,12 +20,15 @@
 
 <ul>
   <% @portfolio.coins.each do |coin| %>
-    <li><%= coin.name %></li>
-    <li><%= coin.quantity(@portfolio) %></li>
-    <li><%= coin.price_usd %></li>
-    <li><%= coin.market_cap_usd %></li>
-    <li><%= coin.percentage_change_24h %></li>
+    <li>Name: <%= coin.name %></li>
+    <li>Symbol: <%= coin.symbol %></li>
+    <li>Price usd: <%= number_to_currency(coin.price_usd) %></li>
+    <li>Market cap usd: <%= number_to_currency(coin.market_cap_usd, precision: 0) %></li>
+    <li>Percent change 24h: <%= number_to_percentage(coin.percent_change_24h, precision: 2) %></li>
+    <li>Quantity: <%= coin.quantity(@portfolio) %></li>
+    <li>Value: <%= number_to_currency(coin.value(@portfolio), precision: 0) %></li>
     <li><%= link_to 'Edit coin', edit_coin_portfolio_path(coin.find_coin_portfolio(@portfolio)) %></li>
+    <hr>
   <% end %>
 </ul>
 <p><%= link_to 'See all portfolios', portfolios_path %></p>

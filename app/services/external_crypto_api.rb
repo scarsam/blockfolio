@@ -15,14 +15,15 @@ class ExternalCryptoApi
   end
 
   def self.update(coins)
-    updated_coins = ExternalCryptoApi.fetch_matching(coins)
-    updated_coins.flatten.each do |api_coin|
+    matching_coins = ExternalCryptoApi.fetch_matching(coins)
+    matching_coins.flatten.each do |api_coin|
       coin = Coin.find_by(name: api_coin["name"])
       coin.update(
         name: api_coin["name"],
+        symbol: api_coin["symbol"],
         price_usd: api_coin["price_usd"],
         market_cap_usd: api_coin["market_cap_usd"],
-        percentage_change_24h: api_coin["percentage_change_24h"]
+        percent_change_24h: api_coin["percent_change_24h"]
       )
     end
   end
