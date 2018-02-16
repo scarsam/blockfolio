@@ -1,5 +1,5 @@
 class CoinPortfoliosController < ApplicationController
-  before_action :set_coin_portfolio, only: [:edit, :update]
+  before_action :set_coin_portfolio, only: [:edit, :update, :destroy]
   before_action :set_portfolio, only: [:create]
 
   def create
@@ -11,7 +11,6 @@ class CoinPortfoliosController < ApplicationController
       @coin_portfolio.build_coin
       render :'portfolios/show'
     end
-
   end
 
   def update
@@ -21,6 +20,12 @@ class CoinPortfoliosController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @portfolio = @coin_portfolio.portfolio
+    @coin_portfolio.destroy
+    redirect_to portfolio_path(@portfolio)
   end
 
   private

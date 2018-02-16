@@ -8,6 +8,8 @@ class Coin < ApplicationRecord
 
   def value(portfolio)
     coin_portfolio = CoinPortfolio.find_by(coin_id: self.id, portfolio_id: portfolio.id)
+    coin_portfolio.total_value = coin_portfolio.quantity * self.price_usd
+    coin_portfolio.save
     coin_portfolio.quantity * self.price_usd
   end
 
@@ -27,8 +29,5 @@ class Coin < ApplicationRecord
   def self.edit_list(portfolio, edit_coin)
     Coin.all.reject { |coin| portfolio.coins.include?(coin) unless coin == edit_coin }
   end
-
-  private
-
 
 end

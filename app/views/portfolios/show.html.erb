@@ -28,7 +28,9 @@
     <li>Quantity: <%= coin.quantity(@portfolio) %></li>
     <li>Value: <%= number_to_currency(coin.value(@portfolio), precision: 0) %></li>
     <li><%= link_to 'Edit coin', edit_coin_portfolio_path(coin.find_coin_portfolio(@portfolio)) %></li>
+    <li><%= link_to "Delete coin", coin_portfolio_path(coin.find_coin_portfolio(@portfolio)), method: :delete %></li>
     <hr>
   <% end %>
 </ul>
+<strong>Total Value: <%= number_to_currency(@portfolio.total_value) %></strong>
 <p><%= link_to 'See all portfolios', portfolios_path %></p>
