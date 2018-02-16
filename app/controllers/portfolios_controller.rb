@@ -6,6 +6,12 @@ class PortfoliosController < ApplicationController
     ExternalCryptoApi.update(all_coins)
   end
 
+  def all_portfolios
+    @user = User.find(params[:user_id])
+    @portfolios = @user.portfolios
+    render :'portfolios'
+  end
+
   def new
     @portfolio = Portfolio.new
   end

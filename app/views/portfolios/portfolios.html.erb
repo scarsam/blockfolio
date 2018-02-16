@@ -1,9 +1,7 @@
-<h1>Welcome to BlockFolio</h1>
-
+<h1><%= @user.email %> portfolio's:</h1>
 <ul>
   <% @portfolios.each do |portfolio| %>
     <li>Portfolio name: <%= portfolio.name %></li>
-    <li>Portfolio owner: <%= link_to "#{portfolio.user.email}", user_portfolios_path(portfolio.user) %></li>
     <li>Amount of coins: <%= portfolio.coins.count %></li>
     <strong>Total Value: <%= number_to_currency(portfolio.total_value) %></strong>
     <p><%= link_to 'See Portfolio', portfolio_path(portfolio) %></p>
@@ -11,4 +9,4 @@
     <hr>
   <% end %>
 </ul>
-<%= link_to 'Create new portfolio', new_portfolio_path %>
+<p><%= link_to 'See all portfolios', portfolios_path %></p>
