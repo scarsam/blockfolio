@@ -6,6 +6,7 @@
     <li>Portfolio owner: <%= portfolio.user.email %></li>
     <li>Amount of coins: <%= portfolio.coins.count %></li>
     <li><%= link_to 'See Portfolio', portfolio_path(portfolio) %></li>
+    <strong>Total Value: <%= number_to_currency(portfolio.total_value) %></strong>
     <hr>
   <% end %>
 </ul>
