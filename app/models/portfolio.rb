@@ -14,6 +14,14 @@ class Portfolio < ApplicationRecord
     value
   end
 
+  def display_owner(current_user)
+    if self.user == current_user
+      self.user.email + ' (You)'
+    else
+      self.user.email
+    end
+  end
+
   private
   def ensure_unique_name
     if self.user.portfolios.where(name: self.name).any?
