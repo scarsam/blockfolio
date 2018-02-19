@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  before_action :authenticate_user
 
   def user_portfolios
     @user = User.find(params[:user_id])

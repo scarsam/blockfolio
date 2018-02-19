@@ -14,10 +14,6 @@ class Portfolio < ApplicationRecord
     value
   end
 
-  def sort_by_price
-    binding.pry
-  end
-
   private
   def ensure_unique_name
     if self.user.portfolios.where(name: self.name).any?

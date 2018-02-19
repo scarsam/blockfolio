@@ -11,6 +11,9 @@ gem 'dotenv-rails'
 # API
 gem 'httparty'
 
+# Authentication
+gem 'cancancan', '~> 2.0'
+
 # Omniauth
 gem 'omniauth'
 gem 'omniauth-facebook'

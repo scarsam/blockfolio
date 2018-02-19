@@ -1,6 +1,7 @@
 class CoinPortfoliosController < ApplicationController
   before_action :set_coin_portfolio, only: [:edit, :update, :destroy]
   before_action :set_portfolio, only: [:create]
+  before_action :authenticate_user
 
   def create
     @coin_portfolio = @portfolio.coin_portfolios.build(coin_portfolios_params)

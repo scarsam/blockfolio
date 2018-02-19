@@ -7,7 +7,9 @@
     <li>Amount of coins: <%= portfolio.coins.count %></li>
     <strong>Total Value: <%= number_to_currency(portfolio.display_total_value, precision: 0) %></strong>
     <p><%= link_to 'See Portfolio', portfolio_path(portfolio) %></p>
-    <p><%= link_to "Delete Portfolio", portfolio_path(portfolio), method: :delete %></p>
+    <% if can? :destroy, portfolio %>
+      <p><%= link_to "Delete Portfolio", portfolio_path(portfolio), method: :delete %></p>
+    <% end %>
     <hr>
   <% end %>
 </ul>
