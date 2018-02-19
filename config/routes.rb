@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   #sign up
   resources :users, only: [:create] do
-    get '/portfolios' => 'portfolios#all_portfolios'
+    get '/portfolios' => 'portfolios#user_portfolios'
+  end
+
+  scope :users do
+    get '/top-portfolios' => 'users#top_portfolios'
   end
 
   #facebook

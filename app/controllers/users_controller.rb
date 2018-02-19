@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def top_portfolios
+    @top_portfolios = Portfolio.order('total_value DESC')
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password)

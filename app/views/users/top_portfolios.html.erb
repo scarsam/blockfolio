@@ -1,13 +1,11 @@
-<h1>Welcome to BlockFolio</h1>
-
+<h1>Most valued portfolios</h1>
 <ul>
-  <% @portfolios.each do |portfolio| %>
+  <% @top_portfolios.each do |portfolio| %>
     <li>Portfolio name: <%= portfolio.name %></li>
     <li>Portfolio owner: <%= link_to "#{portfolio.user.email}", user_portfolios_path(portfolio.user) %></li>
     <li>Amount of coins: <%= portfolio.coins.count %></li>
-    <strong>Total Value: <%= number_to_currency(portfolio.display_total_value, precision: 0) %></strong>
+    <strong>Total Value: <%= number_to_currency(portfolio.total_value) %></strong>
     <p><%= link_to 'See Portfolio', portfolio_path(portfolio) %></p>
-    <p><%= link_to "Delete Portfolio", portfolio_path(portfolio), method: :delete %></p>
     <hr>
   <% end %>
 </ul>

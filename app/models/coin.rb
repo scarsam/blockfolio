@@ -6,11 +6,10 @@ class Coin < ApplicationRecord
     Coin.joins(:portfolios)
   end
 
-  def value(portfolio)
+  def display_value(portfolio)
     coin_portfolio = CoinPortfolio.find_by(coin_id: self.id, portfolio_id: portfolio.id)
-    coin_portfolio.total_value = coin_portfolio.quantity * self.price_usd
-    coin_portfolio.save
-    coin_portfolio.quantity * self.price_usd
+    coin_portfolio.update(value: coin_portfolio.quantity * self.price_usd)
+    coin_portfolio.value
   end
 
   def find_coin_portfolio(portfolio)

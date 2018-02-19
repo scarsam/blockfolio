@@ -26,11 +26,10 @@
     <li>Market cap usd: <%= number_to_currency(coin.market_cap_usd, precision: 0) %></li>
     <li>Percent change 24h: <%= number_to_percentage(coin.percent_change_24h, precision: 2) %></li>
     <li>Quantity: <%= coin.quantity(@portfolio) %></li>
-    <li>Value: <%= number_to_currency(coin.value(@portfolio), precision: 0) %></li>
+    <li>Value: <%= number_to_currency(coin.display_value(@portfolio), precision: 0) %></li>
     <li><%= link_to 'Edit coin', edit_coin_portfolio_path(coin.find_coin_portfolio(@portfolio)) %></li>
     <li><%= link_to "Delete coin", coin_portfolio_path(coin.find_coin_portfolio(@portfolio)), method: :delete %></li>
     <hr>
   <% end %>
 </ul>
-<strong>Total Value: <%= number_to_currency(@portfolio.total_value) %></strong>
-<p><%= link_to 'See all portfolios', portfolios_path %></p>
+<strong>Total Value: <%= number_to_currency(@portfolio.display_total_value, precision: 0) %></strong>

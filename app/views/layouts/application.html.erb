@@ -9,6 +9,9 @@
   </head>
 
   <nav>
+    <%= link_to 'Create Portfolio', new_portfolio_path if logged_in? %>
+    <%= link_to "All Portfolios", portfolios_path if logged_in? %>
+    <%= link_to "Top Portfolios", portfolio_value_path  if logged_in? %>
     <%= link_to "Logout", logout_path, method: :delete if logged_in? %>
   </nav>
   <body>
