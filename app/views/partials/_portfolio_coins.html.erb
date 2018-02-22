@@ -1,0 +1,16 @@
+<ul>
+  <li>Name: <%= coin.name %></li>
+  <li>Symbol: <%= coin.symbol %></li>
+  <li>Price usd: <%= number_to_currency(coin.price_usd) %></li>
+  <li>Market cap usd: <%= number_to_currency(coin.market_cap_usd, precision: 0) %></li>
+  <li>Percent change 24h: <%= number_to_percentage(coin.percent_change_24h, precision: 2) %></li>
+  <li>Quantity: <%= coin.quantity(@portfolio) %></li>
+  <li>Value: <%= number_to_currency(coin.display_value(@portfolio), precision: 0) %></li>
+  <% if can? :update, coin.find_coin_portfolio(@portfolio) %>
+    <li><%= link_to 'Edit coin', edit_coin_portfolio_path(coin.find_coin_portfolio(@portfolio)) %></li>
+  <% end %>
+  <% if can? :destroy, coin.find_coin_portfolio(@portfolio) %>
+    <li><%= link_to "Delete coin", coin_portfolio_path(coin.find_coin_portfolio(@portfolio)), method: :delete %></li>
+  <% end %>
+  <hr>
+</ul>

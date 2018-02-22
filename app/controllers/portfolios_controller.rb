@@ -28,6 +28,7 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio = Portfolio.find(params[:id])
+    @portfolio_coins = @portfolio.coins
     @coin_portfolio = CoinPortfolio.new
     @coin_portfolio.build_coin
   end

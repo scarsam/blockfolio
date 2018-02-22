@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
@@ -8,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to portfolios_path
     else
+      # Fix this
       flash[:error] = "Couldn't find email or password"
       render :new
     end

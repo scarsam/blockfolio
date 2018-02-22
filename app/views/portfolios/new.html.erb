@@ -1,5 +1,5 @@
+<h1>Portfolio form</h1>
 <%= form_for @portfolio do |f| %>
-  <strong>Portfolio:</strong>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <p class='error'><%= show_errors(@portfolio, :name) %></p>

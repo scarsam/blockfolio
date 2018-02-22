@@ -1,19 +1,9 @@
 <h1>Login form</h1>
-<%= form_tag login_path do %>
-  <% if flash[:error] %>
-    <ul>
-      <li><%= flash[:error] %></li>
-    </ul>
-  <% end %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag 'Login' %>
+<%= form_for @user, url: login_path do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :email %>
+  <%= f.submit 'Login' %>
 <% end %>
-<p>
-  <%= link_to "Sign up", root_path %>
-</p>
-
+<%= link_to "Sign up", root_path %>

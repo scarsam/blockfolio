@@ -2,40 +2,9 @@
 <h2>Owner: <%= @portfolio.user.email %></h2>
 
 <% if can? :create, @portfolio %>
-  <%= form_for [@portfolio, @coin_portfolio] do |f| %>
-    <%= f.fields_for :coin do |coin_fields| %>
-      <%= coin_fields.label :name %>
-      <%= coin_fields.text_field :name, list: 'coin-name' %>
-      <p class='error'><%= show_errors(@coin_portfolio, :coin) %></p>
-      <datalist id="coin-name">
-        <% Coin.new_list(@portfolio).each do |coin| %>
-          <option value="<%= coin.name %>"></option>
-        <% end %>
-      </datalist>
-    <% end %>
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
-    <p class='error'><%= show_errors(@coin_portfolio, :quantity) %></p>
-    <%= f.submit 'Add coin' %>
-  <% end %>
+  <%= render :partial => "partials/new_form" %>
 <% end %>
 
-<ul>
-  <% @portfolio.coins.each do |coin| %>
-    <li>Name: <%= coin.name %></li>
-    <li>Symbol: <%= coin.symbol %></li>
-    <li>Price usd: <%= number_to_currency(coin.price_usd) %></li>
-    <li>Market cap usd: <%= number_to_currency(coin.market_cap_usd, precision: 0) %></li>
-    <li>Percent change 24h: <%= number_to_percentage(coin.percent_change_24h, precision: 2) %></li>
-    <li>Quantity: <%= coin.quantity(@portfolio) %></li>
-    <li>Value: <%= number_to_currency(coin.display_value(@portfolio), precision: 0) %></li>
-    <% if can? :update, coin.find_coin_portfolio(@portfolio) %>
-      <li><%= link_to 'Edit coin', edit_coin_portfolio_path(coin.find_coin_portfolio(@portfolio)) %></li>
-    <% end %>
-    <% if can? :destroy, coin.find_coin_portfolio(@portfolio) %>
-      <li><%= link_to "Delete coin", coin_portfolio_path(coin.find_coin_portfolio(@portfolio)), method: :delete %></li>
-      <% end %>
-    <hr>
-  <% end %>
-</ul>
+<%= render :partial => 'partials/portfolio_coins', :collection => @portfolio_coins, :as => :coin %>
+
 <strong>Total Value: <%= number_to_currency(@portfolio.display_total_value, precision: 0) %></strong>
