@@ -6,4 +6,8 @@
   <%= f.password_field :email %>
   <%= f.submit 'Login' %>
 <% end %>
+<% if flash[:error].present? %>
+  <p class='error'><%= flash[:error] %></p>
+<% end %>
+
 <%= link_to "Sign up", root_path %>

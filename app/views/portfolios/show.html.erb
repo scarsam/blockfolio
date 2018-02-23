@@ -1,8 +1,11 @@
 <h1>Portfolio: <%= @portfolio.name %></h1>
-<h2>Owner: <%= @portfolio.user.email %></h2>
+<h2>Owner: <%= @portfolio.display_owner(current_user) %></h2>
 
 <% if can? :create, @portfolio %>
-  <%= render :partial => "partials/new_form" %>
+  <%= form_for [@portfolio, @coin_portfolio] do |f| %>
+    <%= render :partial => 'partials/coin_form', locals: {f: f} %>
+    <%= f.submit 'Add coin' %>
+  <% end %>
 <% end %>
 
 <%= render :partial => 'partials/portfolio_coins', :collection => @portfolio_coins, :as => :coin %>

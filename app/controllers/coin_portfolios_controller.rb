@@ -11,6 +11,7 @@ class CoinPortfoliosController < ApplicationController
       redirect_to portfolio_path(@portfolio)
     else
       @coin_portfolio.build_coin
+      @portfolio_coins = @portfolio.coins
       render :'portfolios/show'
     end
   end

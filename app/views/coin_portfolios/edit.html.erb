@@ -1,15 +1,4 @@
 <%= form_for [@coin_portfolio] do |f| %>
-  <%= f.fields_for :coin do |coin_fields| %>
-    <%= coin_fields.label :name %>
-    <%= coin_fields.text_field :name, list: 'coin-name' %>
-    <datalist id="coin-name">
-      <% Coin.edit_list(@coin_portfolio.portfolio, @coin_portfolio.coin).each do |coin| %>
-        <option value="<%= coin.name %>"></option>
-      <% end %>
-    </datalist>
-  <% end %>
-  <%= f.label :quantity %>
-  <%= f.number_field :quantity %>
-  <p class='error'><%= show_errors(@coin_portfolio, :quantity) %></p>
+  <%= render :partial => "partials/coin_form", locals: {f: f} %>
   <%= f.submit 'Edit coin' %>
 <% end %>

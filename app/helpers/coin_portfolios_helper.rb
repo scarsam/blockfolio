@@ -1,0 +1,3 @@
+module CoinPortfoliosHelper
+
+end
