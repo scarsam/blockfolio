@@ -150,3 +150,5 @@ Ideas:
   Permissions
     Only edit your own portfolio
   Profiles portfolios index
+  
+  Fix validation for user email!

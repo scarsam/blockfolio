@@ -6,7 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 # Rspec
-gem 'rspec-rails'
+group :development, :test do
+  gem 'rspec-rails'
+end
 
 # ENV variables
 gem 'dotenv-rails'
