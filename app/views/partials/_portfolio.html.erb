@@ -7,5 +7,8 @@
   <% if can? :destroy, portfolio %>
     <p><%= link_to "Delete Portfolio", portfolio_path(portfolio), method: :delete %></p>
   <% end %>
+  <% if can? :edit, portfolio %>
+    <p><%= link_to "Edit Portfolio", edit_portfolio_path(portfolio) %></p>
+  <% end %>
   <hr>
 </ul>

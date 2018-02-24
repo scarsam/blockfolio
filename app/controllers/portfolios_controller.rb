@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :authenticate_user
+  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   def user_portfolios
     @user = User.find(params[:user_id])
@@ -27,19 +28,26 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio = Portfolio.find(params[:id])
     @portfolio_coins = @portfolio.coins
     @coin_portfolio = CoinPortfolio.new
     @coin_portfolio.build_coin
   end
 
+  def update
+    @portfolio.update(portfolio_params)
+    redirect_to portfolios_path
+  end
+
   def destroy
-    portfolio = Portfolio.find(params[:id])
-    portfolio.destroy
+    @portfolio.destroy
     redirect_to portfolios_path
   end
 
   private
+  def set_portfolio
+    @portfolio = Portfolio.find(params[:id])
+  end
+
   def portfolio_params
     params.require(:portfolio).permit(:name)
   end
