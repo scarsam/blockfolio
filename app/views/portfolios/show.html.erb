@@ -1,5 +1,5 @@
 <h1>Portfolio: <%= @portfolio.name %></h1>
-<h2>Owner: <%= @portfolio.display_owner(current_user) %></h2>
+<h2>Owner: <%= display_owner(@portfolio, current_user) %></h2>
 
 <% if can? :create, @portfolio %>
   <%= form_for [@portfolio, @coin_portfolio] do |f| %>
@@ -10,4 +10,4 @@
 
 <%= render :partial => 'partials/portfolio_coins', :collection => @portfolio_coins, :as => :coin %>
 
-<strong>Total Value: <%= number_to_currency(@portfolio.display_total_value, precision: 0) %></strong>
+<strong>Total Value: <%= number_to_currency(display_total_value(@portfolio), precision: 0) %></strong>

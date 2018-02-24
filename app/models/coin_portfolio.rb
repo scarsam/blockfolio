@@ -12,4 +12,8 @@ class CoinPortfolio < ApplicationRecord
     end
   end
 
+  def set_value(coin)
+    self.update(value: self.quantity * coin.price_usd)
+  end
+
 end

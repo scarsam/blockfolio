@@ -2,7 +2,7 @@
 <ul>
   <% @top_portfolios.each do |portfolio| %>
     <li>Portfolio name: <%= portfolio.name %></li>
-    <li>Portfolio owner: <%= link_to "#{portfolio.display_owner(current_user)}", user_portfolios_path(portfolio.user) %></li>
+    <li>Portfolio owner: <%= link_to "#{display_owner(portfolio, current_user)}", user_portfolios_path(portfolio.user) %></li>
     <li>Amount of coins: <%= portfolio.coins.count %></li>
     <strong>Total Value: <%= number_to_currency(portfolio.total_value, precision: 0) %></strong>
     <p><%= link_to 'See Portfolio', portfolio_path(portfolio) %></p>
