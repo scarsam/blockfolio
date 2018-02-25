@@ -19,6 +19,15 @@ describe User, type: :model do
       expect(user).to be_invalid
     end
   end
+  context "When creating an invalid email for User" do
+    it "should return invalid" do
+      user = User.create(
+        email: 'test@test',
+        password: 'test123'
+      )
+      expect(user).to be_invalid
+    end
+  end
   context "When creating a new user with 2 portfolios" do
     it "should contain 2 portfolios" do
       user = User.create(
