@@ -228,7 +228,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   cancancan (~> 2.0)
-  capybara (~> 2.13)
+  capybara
   coffee-rails (~> 4.2)
   dotenv-rails
   httparty
