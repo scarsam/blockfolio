@@ -5,16 +5,23 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <nav>
-    <%= link_to 'Create Portfolio', new_portfolio_path if logged_in? %>
-    <%= link_to "All Portfolios", portfolios_path if logged_in? %>
-    <%= link_to "Top Portfolios", top_portfolios_path  if logged_in? %>
-    <%= link_to "Logout", logout_path, method: :delete if logged_in? %>
+  <nav class="nav">
+    <a class="navbar-brand" href="<%= portfolios_path %>">
+      <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      Blockfolio
+    </a>
+    <%= link_to 'Create Portfolio', new_portfolio_path, class: 'nav-link' if logged_in? %>
+    <%= link_to "All Portfolios", portfolios_path, class: 'nav-link' if logged_in? %>
+    <%= link_to "Top Portfolios", top_portfolios_path, class: 'nav-link'  if logged_in? %>
+    <%= link_to "Logout", logout_path, class: 'nav-link', method: :delete if logged_in? %>
   </nav>
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

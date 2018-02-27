@@ -11,6 +11,12 @@ group :development, :test do
   gem 'capybara'
 end
 
+# CSS Framework
+gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
+gem 'jquery-rails'
+
 # ENV variables
 gem 'dotenv-rails'
 
