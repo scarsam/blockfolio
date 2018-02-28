@@ -6,9 +6,7 @@
   <%= form_for [@portfolio, @coin_portfolio] do |f| %>
     <div class="form-row align-items-center">
       <%= render :partial => 'partials/coin_form', locals: {f: f} %>
-      <div class="col-auto my-1">
-        <%= f.submit 'Add coin', class: 'btn btn-primary' %>
-      </div>
+      <%= f.submit 'Add coin', class: 'btn btn-primary margin-top-7px' %>
     </div>
   <% end %>
 <% end %>
