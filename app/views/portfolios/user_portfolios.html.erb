@@ -1,6 +1,14 @@
-<h1>Portfolio's:</h1>
-<div class="card-deck">
-  <div class="row">
+<h1><%= @user.email %>'s portfolios</h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th class="border-top-0">Portfolio name</th>
+    <th class="border-top-0">Portfolio owner</th>
+    <th class="border-top-0">Amount of coins</th>
+    <th class="border-top-0">Total value</th>
+  </tr>
+  </thead>
+  <tbody>
     <%= render :partial => "partials/portfolio", :collection => @portfolios %>
-  </div>
-</div>
+  </tbody>
+</table>

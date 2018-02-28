@@ -4,8 +4,12 @@
 
 <% if can? :create, @portfolio %>
   <%= form_for [@portfolio, @coin_portfolio] do |f| %>
-    <%= render :partial => 'partials/coin_form', locals: {f: f} %>
-    <%= f.submit 'Add coin' %>
+    <div class="form-row align-items-center">
+      <%= render :partial => 'partials/coin_form', locals: {f: f} %>
+      <div class="col-auto my-1">
+        <%= f.submit 'Add coin', class: 'btn btn-primary' %>
+      </div>
+    </div>
   <% end %>
 <% end %>
 

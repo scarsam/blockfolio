@@ -1,13 +1,17 @@
-<%= f.fields_for :coin do |coin_fields| %>
-  <%= coin_fields.label :name %>
-  <%= coin_fields.text_field :name, list: 'coin-name' %>
-  <p class='error'><%= show_errors(@coin_portfolio, :coin) %></p>
-  <datalist id="coin-name">
-    <% Coin.list(@portfolio || @coin_portfolio.portfolio, @coin_portfolio.coin).each do |coin| %>
-      <option value="<%= coin.name %>"></option>
-    <% end %>
-  </datalist>
-<% end %>
-<%= f.label :quantity %>
-<%= f.number_field :quantity %>
-<p class='error'><%= show_errors(@coin_portfolio, :quantity) %></p>
+<div class="col-sm-3 my-1">
+  <%= f.fields_for :coin do |coin_fields| %>
+    <%= coin_fields.label :name %>
+    <%= coin_fields.text_field :name, list: 'coin-name' %>
+    <span class='error inline-block'><%= show_errors(@coin_portfolio, :coin) %></span>
+    <datalist id="coin-name">
+      <% Coin.list(@portfolio || @coin_portfolio.portfolio, @coin_portfolio.coin).each do |coin| %>
+        <option value="<%= coin.name %>"></option>
+      <% end %>
+    </datalist>
+  <% end %>
+</div>
+<div class="col-sm-3 my-1">
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+  <span class='error inline-block'><%= show_errors(@coin_portfolio, :quantity) %></span>
+</div>
