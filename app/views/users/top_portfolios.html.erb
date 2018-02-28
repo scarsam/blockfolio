@@ -1,11 +1,15 @@
 <h1>Most valued portfolios</h1>
-<ul>
-  <% @top_portfolios.each do |portfolio| %>
-    <li>Portfolio name: <%= portfolio.name %></li>
-    <li>Portfolio owner: <%= link_to "#{display_owner(portfolio, current_user)}", user_portfolios_path(portfolio.user) %></li>
-    <li>Amount of coins: <%= portfolio.coins.count %></li>
-    <strong>Total Value: <%= number_to_currency(portfolio.total_value, precision: 0) %></strong>
-    <p><%= link_to 'See Portfolio', portfolio_path(portfolio) %></p>
-    <hr>
-  <% end %>
-</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="border-top-0">#</th>
+      <th class="border-top-0">Portfolio name</th>
+      <th class="border-top-0">Portfolio owner</th>
+      <th class="border-top-0">Amount of coins</th>
+      <th class="border-top-0">Total value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => "partials/top_portfolios", :collection => @top_portfolios, as: :portfolio %>
+  </tbody>
+</table>

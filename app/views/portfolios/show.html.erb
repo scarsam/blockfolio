@@ -1,5 +1,6 @@
 <h1>Portfolio: <%= @portfolio.name %></h1>
-<h2>Owner: <%= display_owner(@portfolio, current_user) %></h2>
+<h2><%= link_to "#{display_owner(@portfolio, current_user)}", user_portfolios_path(@portfolio.user) %></h2>
+
 
 <% if can? :create, @portfolio %>
   <%= form_for [@portfolio, @coin_portfolio] do |f| %>
@@ -8,6 +9,24 @@
   <% end %>
 <% end %>
 
-<%= render :partial => 'partials/portfolio_coins', :collection => @portfolio_coins, :as => :coin %>
+<table class="table">
+  <thead>
+  <tr>
+    <th class="border-top-0">Name</th>
+    <th class="border-top-0">Symbol</th>
+    <th class="border-top-0">Price USD</th>
+    <th class="border-top-0">Market cap USD</th>
+    <th class="border-top-0">Percent change 24</th>
+    <th class="border-top-0">Quantity</th>
+    <th class="border-top-0">Value</th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'partials/portfolio_coins', :collection => @portfolio_coins, :as => :coin %>
+  </tbody>
+</table>
 
 <strong>Total Value: <%= number_to_currency(display_total_value(@portfolio), precision: 0) %></strong>
+
+<%= link_to "Edit", edit_portfolio_path(@portfolio) if can? :edit, @portfolio %>
+<%= link_to "Delete", portfolio_path(@portfolio), method: :delete if can? :destroy, @portfolio %>

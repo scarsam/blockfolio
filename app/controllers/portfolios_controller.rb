@@ -35,7 +35,7 @@ class PortfoliosController < ApplicationController
 
   def update
     @portfolio.update(portfolio_params)
-    redirect_to portfolios_path
+    redirect_to portfolio_path(@portfolio)
   end
 
   def destroy

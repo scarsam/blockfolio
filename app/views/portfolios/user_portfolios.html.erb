@@ -1,2 +1,6 @@
 <h1>Portfolio's:</h1>
-<%= render :partial => "partials/portfolio", :collection => @portfolios %>
+<div class="card-deck">
+  <div class="row">
+    <%= render :partial => "partials/portfolio", :collection => @portfolios %>
+  </div>
+</div>

@@ -1,12 +1,12 @@
 <h1>Welcome to BlockFolio</h1>
-<table class="table table-hover">
+<table class="table">
   <thead>
-    <tr>
-      <th class="border-top-0" scope="col">Portfolio name</th>
-      <th class="border-top-0" scope="col">Portfolio owner</th>
-      <th class="border-top-0" scope="col">Amount of coins</th>
-      <th class="border-top-0" scope="col">Total value</th>
-    </tr>
+  <tr>
+    <th class="border-top-0">Portfolio name</th>
+    <th class="border-top-0">Portfolio owner</th>
+    <th class="border-top-0">Amount of coins</th>
+    <th class="border-top-0">Total value</th>
+  </tr>
   </thead>
   <tbody>
     <%= render :partial => "partials/portfolio", :collection => @portfolios %>
