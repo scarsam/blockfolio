@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      binding.pry
       session[:user_id] = @user.id
       redirect_to portfolios_path
     else

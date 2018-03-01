@@ -1,7 +1,11 @@
 <%= form_for @portfolio do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <p class='error'><%= show_errors(@portfolio, :name) %></p>
-  <p class='error'><%= show_errors(@portfolio, :unique_name) %></p>
-  <%= f.submit %>
+  <div class="form-row align-items-center justify-content-center">
+    <div class="col-sm-3">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <span class='error inline-block'><%= show_errors(@portfolio, :name) %></span>
+      <span class='error inline-block'><%= show_errors(@portfolio, :unique_name) %></span>
+    </div>
+    <%= f.submit class: 'btn btn-primary margin-top-7px' %>
+  </div>
 <% end %>

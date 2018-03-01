@@ -1,4 +1,6 @@
 <%= form_for [@coin_portfolio] do |f| %>
-  <%= render :partial => "partials/coin_form", locals: {f: f} %>
-  <%= f.submit 'Edit coin' %>
+  <div class="form-row align-items-center">
+    <%= render :partial => "partials/coin_form", locals: {f: f} %>
+    <%= f.submit 'Confirm', class: 'btn btn-primary margin-top-7px' %>
+  </div>
 <% end %>
