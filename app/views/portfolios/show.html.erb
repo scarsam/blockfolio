@@ -1,6 +1,6 @@
-<h1>Portfolio: <%= @portfolio.name %></h1>
-<h2><%= link_to "#{display_owner(@portfolio, current_user)}", user_portfolios_path(@portfolio.user) %></h2>
-
+<h2>Portfolio: <%= @portfolio.name %></h2>
+<%= link_to "Edit", edit_portfolio_path(@portfolio) if can? :edit, @portfolio %>
+<%= link_to "Delete", portfolio_path(@portfolio), method: :delete if can? :destroy, @portfolio %>
 
 <% if can? :create, @portfolio %>
   <%= form_for [@portfolio, @coin_portfolio] do |f| %>
@@ -24,11 +24,9 @@
   </tr>
   </thead>
   <tbody>
-    <%= render :partial => 'partials/portfolio_coins', :collection => @portfolio_coins, :as => :coin %>
+    <%= render partial: 'partials/portfolio_coins', collection: @portfolio_coins, as: :coin %>
   </tbody>
 </table>
 
 <strong>Total Value: <%= number_to_currency(display_total_value(@portfolio), precision: 0) %></strong>
-
-<%= link_to "Edit", edit_portfolio_path(@portfolio) if can? :edit, @portfolio %>
-<%= link_to "Delete", portfolio_path(@portfolio), method: :delete if can? :destroy, @portfolio %>
+<strong><%= render partial: 'partials/display_owner', locals: {portfolio: @portfolio} %></strong>

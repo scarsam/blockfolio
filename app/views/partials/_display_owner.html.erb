@@ -1,0 +1,5 @@
+<% if owner?(portfolio) %>
+  <%= link_to "#{display_owner(portfolio)}", user_portfolios_path(portfolio.user) %> <span class="badge badge-pill badge-primary">Your Portfolio</span>
+<% else %>
+  <%= link_to "#{display_owner(portfolio)}", user_portfolios_path(portfolio.user) %>
+<% end %>

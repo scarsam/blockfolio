@@ -9,11 +9,15 @@ module PortfoliosHelper
     value
   end
 
-  def display_owner(portfolio, current_user)
+  def display_owner(portfolio)
+    portfolio.user.email
+  end
+
+  def owner?(portfolio)
     if portfolio.user == current_user
-      portfolio.user.email + ' (You)'
+      true
     else
-      portfolio.user.email
+      false
     end
   end
 
