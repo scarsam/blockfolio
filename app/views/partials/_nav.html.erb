@@ -1,0 +1,27 @@
+<span class="navbar-brand">Blockfolio</span>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarText">
+  <ul class="navbar-nav mr-auto">
+    <% if logged_in? %>
+      <li class="nav-item">
+        <%= link_to "My Portfolios", user_portfolios_path(current_user), class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "All Portfolios", portfolios_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Top Portfolios", top_portfolios_path, class: 'nav-link' %>
+      </li>
+    <% end %>
+  </ul>
+  <% if logged_in? %>
+    <%= link_to 'Create Portfolio', new_portfolio_path, class: 'btn btn-primary mr-sm-2' %>
+    <%= link_to "Logout", logout_path, class: 'btn btn-secondary my-2 my-sm-0', method: :delete %>
+  <% end %>
+  <% if !logged_in? %>
+    <%= link_to "Sign up", root_path, class: 'btn btn-secondary mr-sm-2' %>
+    <%= link_to "Login", login_path, class: 'btn btn-secondary my-2 my-sm-0' %>
+  <% end %>
+</div>

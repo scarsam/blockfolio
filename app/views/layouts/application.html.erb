@@ -11,25 +11,7 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <span class="navbar-brand">Blockfolio</span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <%= link_to "My Portfolios", user_portfolios_path(current_user), class: 'nav-link' if logged_in? %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "All Portfolios", portfolios_path, class: 'nav-link' if logged_in? %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Top Portfolios", top_portfolios_path, class: 'nav-link'  if logged_in? %>
-        </li>
-      </ul>
-      <%= link_to 'Create Portfolio', new_portfolio_path, class: 'btn btn-primary mr-sm-2' if logged_in? %>
-      <%= link_to "Logout", logout_path, class: 'btn btn-secondary my-2 my-sm-0', method: :delete if logged_in? %>
-    </div>
+    <%= render partial: 'partials/nav' %>
   </nav>
   <body>
     <div class="container mt-5">

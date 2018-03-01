@@ -4,12 +4,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(email: params[:user][:email])
+    if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       redirect_to portfolios_path
     else
-      flash[:error] = "Couldn't find email or password"
+      if user.nil?
+        flash[:user_error] = "Couldn't find email"
+        flash[:password_error] = "Please enter a correct password"
+      elsif user && user.authenticate(params[:password]) == false
+        flash[:password_error] = "Please enter a correct password"
+      end
       redirect_to login_path
     end
   end
