@@ -7,7 +7,7 @@
   <td><%= quantity(coin, @portfolio) %></td>
   <td><%= number_to_currency(display_value(coin, @portfolio), precision: 0) %></td>
   <% if can? :edit, find_coin_portfolio(coin, @portfolio) %>
-    <td class="border-top-0">
+    <td class="border-top-0 position-absolute">
       <%= link_to 'Edit', edit_coin_portfolio_path(find_coin_portfolio(coin, @portfolio)) if can? :edit, find_coin_portfolio(coin, @portfolio) %> |
       <%= link_to "Delete", coin_portfolio_path(find_coin_portfolio(coin, @portfolio)), method: :delete if can? :destroy, find_coin_portfolio(coin, @portfolio) %>
     </td>
