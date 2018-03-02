@@ -1,6 +1,26 @@
-<%= form_for [@coin_portfolio] do |f| %>
-  <div class="form-row align-items-center">
-    <%= render :partial => "partials/coin_form", locals: {f: f} %>
-    <%= f.submit 'Confirm', class: 'btn btn-primary margin-top-7px' %>
+<div class="row">
+  <div class="col-sm-4 offset-sm-4">
+    <h1>Edit coin form</h1>
+    <%= form_for @coin_portfolio do |f| %>
+      <div class="form-group">
+        <%= f.fields_for :coin do |coin_fields| %>
+          <%= coin_fields.label :name %>
+          <%= coin_fields.text_field :name, list: 'coin-name', class: 'form-control' %>
+          <span class='error inline-block'><%= show_errors(@coin_portfolio, :coin) %></span>
+          <datalist id="coin-name">
+            <% Coin.list(@coin_portfolio.portfolio, @coin_portfolio.coin).each do |coin| %>
+              <option value="<%= coin.name %>"></option>
+            <% end %>
+          </datalist>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, class: 'form-control' %>
+        <span class='error inline-block'><%= show_errors(@coin_portfolio, :quantity) %></span>
+      </div>
+      <%= f.submit 'Confirm', class: 'btn btn-primary w-100' %>
+    <% end %>
   </div>
-<% end %>
+</div>
+

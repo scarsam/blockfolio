@@ -4,7 +4,7 @@
     <%= coin_fields.text_field :name, list: 'coin-name', class: 'form-control' %>
     <span class='error inline-block'><%= show_errors(@coin_portfolio, :coin) %></span>
     <datalist id="coin-name">
-      <% Coin.list(@portfolio || @coin_portfolio.portfolio, @coin_portfolio.coin).each do |coin| %>
+      <% Coin.list(@portfolio).each do |coin| %>
         <option value="<%= coin.name %>"></option>
       <% end %>
     </datalist>
