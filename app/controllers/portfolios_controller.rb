@@ -1,6 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :authenticate_user
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :fetch_api, only: [:index, :show, :user_portfolios]
 
   def user_portfolios
     @user = User.find(params[:user_id])
@@ -9,8 +10,6 @@ class PortfoliosController < ApplicationController
 
   def index
     @portfolios = Portfolio.all
-    all_coins = Coin.with_portfolios
-    ExternalCryptoApi.update(all_coins)
   end
 
   def new

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :fetch_api, only: [:top_portfolios]
 
   def new
     @user = User.new
