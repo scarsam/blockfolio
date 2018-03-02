@@ -1,6 +1,6 @@
 # Blockfolio
 
-This webapplication is a simple version of the iPhone application Blockfolio. Blockfolio lets you saves your created portfolios under your profile, fill your portfolio with your favorite coins and login each day to track the progress of your portfolio.
+This web application is my take on the famous iPhone application Blockfolio. This application lets you saves your created portfolios under your profile, add your coins to your portfolio and login each day to track the progress of your portfolio.
 
 ### System dependencies
   - Postgres to manage and store data
