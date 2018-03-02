@@ -11,10 +11,10 @@ Specs:
   - A Portfolio has_many coins through coin_portfolios
   - A Coin has_many portfolios through coin_portfolios
 - [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
-  - Quantity is the user submittable attribute
+  - Quantity is the user submittable attribute on the join table
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
   - I've included validations for each model
-- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL:  -/users/most_recipes
   - Most valued /users/top-portfolios which orders the most valued portfolios in order
 - [x] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
   - I have a form for coin_portfolios which is associated with the Coin model
@@ -27,7 +27,7 @@ Specs:
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
   - Using Omniauth so the user can signup through Facebook
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
-  - User/2/portfolios index page
+  - User/:id/portfolios index page
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
   - The nested resource for the new form is on the portfolios page. The coin still get associated to the portfolio but I 
   chose to display the form on the portfolio page instead for a better UX
