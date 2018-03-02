@@ -3,7 +3,8 @@ class User < ApplicationRecord
   has_many :portfolios
   has_secure_password
 
-  validates_presence_of :email, uniqueness: true
+  validates :email, uniqueness: { case_sensitive: false }
+  validates_presence_of :email
   validates_presence_of :password
   validates_format_of :email, with: VALID_EMAIL, on: :create, message: 'Please enter a correct email address'
 end
