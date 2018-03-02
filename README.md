@@ -12,13 +12,13 @@ This webapplication is a simple version of the iPhone application Blockfolio. Bl
   - Bootstrap to style the page 
 
 ### Configuration
-  Make sure to `bundle` and follow the database steps below in order to get the application up and running. To start your server enter `rails s` in your terminal after finishing reading through this readme.
+  Make sure to `bundle` and follow the database steps below in order to get the application up and running. To start your server type `rails s` in your terminal but make sure you finish the database creation steps first.
   
 ### Database initialization and creation
   In order to run the application correctly you first need to seed the database with data from the API, run:
-1. `rake db:migrate`
-2. `rake db:seed`
+1. 'rake db:create'
+2. `rake db:migrate`
+3. `rake db:seed`
 
 ### How to run the test suite
-This rails application is using Rspec to test the models and Capybara for integrations test. To run the test in your terminal:
--  `rspec`
+This rails application is using Rspec to test the models and Capybara for integrations test. To run the test in your terminal type: `rspec`.
