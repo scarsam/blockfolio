@@ -12,13 +12,34 @@ This web application is my take on the famous iPhone application Blockfolio. Thi
   - Bootstrap to style the page 
 
 ### Configuration
-  Make sure to `bundle` and follow the database steps below in order to get the application up and running. To start your server type `rails s` in your terminal but make sure you finish the database creation steps first.
+Change the current working directory to the location where you want the cloned directory to be made and then type:
+```
+git clone git@github.com:scarsam/blockfolio.git
+```
+Once you have cloned all the files type:
+```
+bundle install
+```
+to install all the project dependencies and follow the database steps below in order to get the application up and running. To start your server type `rails s` in your terminal but make sure you finish the database creation steps first.
   
 ### Database initialization and creation
-  In order to run the application correctly you first need to seed the database with data from the API, run:
-1. 'rake db:create'
-2. `rake db:migrate`
-3. `rake db:seed`
+In order to run the application correctly you first need to seed the database with data from the API, run:
+```
+rake db:create
+rake db:migrate
+rake db:seed
+```
 
 ### How to run the test suite
-This rails application is using Rspec to test the models and Capybara for integrations test. To run the test in your terminal type: `rspec`.
+This rails application is using Rspec to test the models and Capybara for integrations test. To run the test in your terminal type: 
+```
+rspec
+```
+
+### Contribute to Blockfolio
+A contributor can be anyone! It could be you. Continue reading this section if
+you wish to get involved and contribute back to the Blockfolio project.
+- Ensure the bug was not already reported by searching on GitHub under Issues.
+- If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
+
+Thanks! :heart:
