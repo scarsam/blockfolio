@@ -6,10 +6,10 @@ describe "the user signin process", type: :feature do
   end
   it "signs in the user" do
     visit login_path
-    expect(page).to have_content 'Login form'
+    expect(page).to have_content 'Login'
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
     click_button 'Login'
-    expect(page).to have_content 'Welcome to BlockFolio'
+    expect(page).to have_content 'All Portfolios'
   end
 end

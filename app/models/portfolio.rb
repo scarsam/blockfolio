@@ -5,5 +5,4 @@ class Portfolio < ApplicationRecord
 
   validates :name, uniqueness: { case_sensitive: false }
   validates_presence_of :name
-
 end
