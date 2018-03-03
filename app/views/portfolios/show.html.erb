@@ -30,5 +30,5 @@
   </tbody>
 </table>
 
-<p><strong>Total Value: <%= number_to_currency(display_total_value(@portfolio), precision: 0) %></strong></p>
+<p><strong>Total Value: <%= number_to_currency(total_value(@portfolio), precision: 0) %></strong></p>
 <p><strong>Owner: <%= render partial: 'partials/display_owner', locals: {portfolio: @portfolio} %></strong></p>

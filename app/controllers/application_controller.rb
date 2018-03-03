@@ -18,13 +18,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def find_coin_portfolio(coin, portfolio)
-    CoinPortfolio.find_by(coin_id: coin.id, portfolio_id: portfolio.id)
-  end
-
   def fetch_api
-    all_coins = Coin.with_portfolios
-    ExternalCryptoApi.update(all_coins)
+    portfolio_coins = Coin.with_portfolios
+    ExternalCryptoApi.update(portfolio_coins)
   end
 
 end

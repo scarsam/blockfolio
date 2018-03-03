@@ -1,6 +1,6 @@
 module PortfoliosHelper
 
-  def display_total_value(portfolio)
+  def total_value(portfolio)
     value = 0
     portfolio.coin_portfolios.each do |coin_portfolio|
       value += coin_portfolio.value unless coin_portfolio.value.nil?
@@ -14,11 +14,7 @@ module PortfoliosHelper
   end
 
   def owner?(portfolio)
-    if portfolio.user == current_user
-      true
-    else
-      false
-    end
+    portfolio.user == current_user ? true : false
   end
 
   def coins_count(portfolio)

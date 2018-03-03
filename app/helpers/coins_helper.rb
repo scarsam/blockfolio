@@ -1,9 +1,8 @@
 module CoinsHelper
 
   def display_value(coin, portfolio)
-    coin_portfolio = find_coin_portfolio(coin, portfolio)
+    coin_portfolio = CoinPortfolio.find_by(coin_id: coin.id, portfolio_id: portfolio.id)
     coin_portfolio.set_value(coin)
-    coin_portfolio.value
   end
 
 end

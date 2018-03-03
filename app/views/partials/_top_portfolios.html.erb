@@ -3,6 +3,6 @@
   <td><%= link_to "#{portfolio.name}", portfolio_path(portfolio) %></td>
   <td><%= render partial: 'partials/display_owner', locals: {portfolio: portfolio} %></td>
   <td><%= coins_count(portfolio) %></td>
-  <td><%= number_to_currency(display_total_value(portfolio), precision: 0)%></td>
+  <td><%= number_to_currency(total_value(portfolio), precision: 0)%></td>
 </tr>
 

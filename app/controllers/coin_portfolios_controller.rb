@@ -32,6 +32,7 @@ class CoinPortfoliosController < ApplicationController
   end
 
   private
+
   def set_coin_portfolio
     @coin_portfolio = CoinPortfolio.find(params[:id])
   end
