@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :authenticate_user
+  before_action :authorize_portfolio, only: [:edit]
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   before_action :fetch_api, only: [:index, :show, :user_portfolios]
 
