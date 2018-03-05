@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-sm-4 offset-sm-4">
     <h1>New portfolio form</h1>
-    <%= render partial: 'partials/portfolio_form' %>
+    <%= form_for [current_user, @portfolio] do |f| %>
+      <%= render partial: 'partials/portfolio_form', locals: {f: f} %>
+    <% end %>
   </div>
 </div>
 

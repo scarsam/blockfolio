@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
-      redirect_to portfolios_path
+      redirect_to welcome_path
     else
       render :new
     end

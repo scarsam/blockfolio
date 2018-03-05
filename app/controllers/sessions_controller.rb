@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:user][:email])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to portfolios_path
+      redirect_to welcome_path
     else
       if user.nil?
         flash[:user_error] = "Couldn't find email"
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
       u.password = 'testing123'
     end
     session[:user_id] = user.id
-    redirect_to portfolios_path
+    redirect_to welcome_path
   end
 
   def destroy

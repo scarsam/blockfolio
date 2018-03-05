@@ -3,13 +3,13 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   before_action :fetch_api, only: [:index, :show, :user_portfolios]
 
-  def user_portfolios
-    @user = User.find(params[:user_id])
-    @portfolios = @user.portfolios
+  def welcome
+    @portfolios = Portfolio.all
   end
 
   def index
-    @portfolios = Portfolio.all
+    @user = User.find(params[:user_id])
+    @portfolios = @user.portfolios
   end
 
   def new
@@ -39,7 +39,7 @@ class PortfoliosController < ApplicationController
 
   def destroy
     @portfolio.destroy
-    redirect_to portfolios_path
+    redirect_to welcome_path
   end
 
   private

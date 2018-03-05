@@ -2,25 +2,26 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'users#new'
 
-  #sign up
+  # Facebook
+  get '/auth/facebook/callback' => 'sessions#create_facebook'
+
+  # Landing page
+  get '/welcome' => 'portfolios#welcome'
+
+  # Models
   resources :users, only: [:create] do
-    get '/portfolios' => 'portfolios#user_portfolios'
+    resources :portfolios, shallow: true do
+      resources :coin_portfolios, shallow: true
+    end
   end
 
   scope :users do
     get '/top-portfolios' => 'users#top_portfolios'
   end
 
-  #facebook
-  get '/auth/facebook/callback' => 'sessions#create_facebook'
-
-  #login/logout
+  # Login/logout
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-
-  resources :portfolios do
-    resources :coin_portfolios, shallow: true
-  end
 
 end

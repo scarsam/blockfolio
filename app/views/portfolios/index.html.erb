@@ -1,4 +1,8 @@
-<h1>All Portfolios</h1>
+<% if current_user == @user %>
+  <h1>Your portfolios</h1>
+<% else %>
+  <h1><%= @user.email %>'s portfolios</h1>
+<% end %>
 <table class="table">
   <thead>
   <tr>

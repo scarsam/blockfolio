@@ -6,10 +6,10 @@
   <ul class="navbar-nav mr-auto">
     <% if logged_in? %>
       <li class="nav-item">
-        <%= link_to "My Portfolios", user_portfolios_path(current_user), class: 'nav-link' %>
+        <%= link_to "All Portfolios", welcome_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <%= link_to "All Portfolios", portfolios_path, class: 'nav-link' %>
+        <%= link_to "My Portfolios", user_portfolios_path(current_user), class: 'nav-link' %>
       </li>
       <li class="nav-item">
         <%= link_to "Top Portfolios", top_portfolios_path, class: 'nav-link' %>
@@ -17,7 +17,7 @@
     <% end %>
   </ul>
   <% if logged_in? %>
-    <%= link_to 'Create Portfolio', new_portfolio_path, class: 'btn btn-primary mr-sm-2' %>
+    <%= link_to 'Create Portfolio', new_user_portfolio_path(current_user), class: 'btn btn-primary mr-sm-2' %>
     <%= link_to "Logout", logout_path, class: 'btn btn-secondary my-2 my-sm-0', method: :delete %>
   <% end %>
   <% if !logged_in? %>

@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center mb-3 border-bottom">
   <h2 class="inline-block mr-3">Portfolio name: <%= @portfolio.name %></h2>
-  <%= link_to "Edit", edit_portfolio_path(@portfolio), class: 'badge badge-warning mr-2' if can? :edit, @portfolio %>
+  <%= link_to "Edit", edit_portfolio_path(@portfolio), class: 'badge badge-light mr-2' if can? :edit, @portfolio %>
   <%= link_to "Delete", portfolio_path(@portfolio), class: 'badge badge-danger', method: :delete if can? :destroy, @portfolio %>
 </div>
 
