@@ -1,3 +1,4 @@
+# Raw project notes
 Rails Project - CryptoPortfolio
 Idea
 Similar to stock portfolio sites, this would be a site to create different portfolios with cryptocurrencies. A user should be able to create multiple portfolios containing different coins. Also view other users portfolios if the admin make their portfolio public. A user should be able to edit the name of their portfolio and also edit which coins they want to have in their portfolios. The index page will rank the most successful portfolios and their profiles.
