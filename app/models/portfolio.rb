@@ -4,5 +4,5 @@ class Portfolio < ApplicationRecord
   has_many :coins, through: :coin_portfolios, dependent: :destroy
 
   validates :name, uniqueness: { case_sensitive: false }
-  validates_presence_of :name
+  validates :name, presence: true
 end
